@@ -1,0 +1,811 @@
+@font-face {
+    font-family: "Inter";
+    src: local("Inter-Regular"),
+         url("/fonts/Inter-Regular.woff2") format("woff2"),
+         url("/fonts/Inter-Regular.woff") format("woff");
+         font-weight: 400;
+         font-style: normal;
+         font-display: swap;
+  }
+@font-face {
+    font-family: "Inter";
+    src: local("Inter-SemiBold"),
+         url("/fonts/Inter-SemiBold.woff") format("woff2"),
+         url("/fonts/Inter-SemiBold.woff") format("woff");
+         font-weight: 600;
+         font-style: normal;
+         font-display: swap;
+  }
+@font-face {
+    font-family: "Inter";
+    src: local("Inter-Bold"),
+         url("/fonts/Inter-Bold.woff2") format("woff2"),
+         url("/fonts/Inter-Bold.woff") format("woff");
+         font-weight: 700;
+         font-style: normal;
+         font-display: swap;
+  }
+@font-face {
+    font-family: "Inter";
+    src: local("Inter-ExtraBold"),
+         url("/fonts/Inter-ExtraBold.woff2") format("woff2"),
+         url("/fonts/Inter-ExtraBold.woff") format("woff");
+         font-weight: 800;
+         font-style: normal;
+         font-display: swap;
+  }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+/* =============================vars */
+:root {
+    --darker-base: #AD0F5B;
+    --base:#BF1968;
+    --title-base: #BF1A69;
+    --lighter-base: #F3519F;
+    --darker-text: #3F015C;
+    --base-text: #fff;
+    --fainter-text: #D4D4D4;
+    --darker-accent: #FEA800;
+    --accent:#FECC00;
+    --second-accent: #2B5DA8;
+    --accent-gradient: linear-gradient(102deg, #FECC00 10.9%, #FEA800 93.9%);
+    --bg-sm: rgba(0, 0, 0, 0.15);
+    --rounded: 16px;
+    --rounded-sm: 10px;
+
+    
+}
+/* custom reset */
+.page {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    color: var(--base-text);
+    background-color: var(--base);
+    overflow-x: hidden;
+}
+
+.main {
+    padding-bottom: 34px;
+}
+
+.title,
+.text {
+    margin: 0;
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.btn {
+    background-color: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+}
+
+.link {
+    color: inherit;
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+/* ============================================================global styles */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ============================================================ buttons and conditions */
+
+.button {
+    display: block;
+    width: 100%;
+    max-width: 555px;
+    padding: 16px 45px;
+    color: var(--darker-text);
+    text-align: center;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: 0.16px;
+    border-radius: var(--rounded);
+    border-top: 1px solid #FFDC7F;
+    border-right: 1px solid #FFDC7F;
+    outline: none;
+    background: var(--accent-gradient);
+    box-shadow: 0px 16.5px 22px 0px #9B0A50;
+    transition: 
+    filter .3s ease,
+    box-shadow .3s ease,
+    transform .3s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+    filter: brightness(1.1);
+}
+
+.button:active {
+    transform: translateY(5px);
+    box-shadow: 0px 5px 10px 0px #9B0A50;
+}
+
+/* ============================================================= titles */
+.site-title {
+    max-width: 81px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 115%;
+}
+
+.main-title {
+    max-width: 555px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 120%;
+}
+
+.section-title {
+    position: relative;
+    padding: 5px 0;
+    display: inline-block;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 130%;
+}
+
+/* тут я делаю диалоговый пузырь для заголовков */
+.section-title-wrapper {
+    position: relative;
+    width: fit-content;
+    max-width: 235px;
+    margin-bottom: 25px;
+    padding: 10px 16px 5px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='231' height='80'  fill='none'%3E%3Cpath d='M6.40896 17.6862C6.72378 13.753 9.94141 10.6662 13.8774 10.5215L216.775 3.06137C220.841 2.9119 224.303 5.94478 224.692 9.99637L230.53 70.723C230.969 75.2846 227.368 79.252 222.789 79.252L9.78976 79.252C5.30259 79.252 1.78668 75.4349 2.14544 70.9528L6.40896 17.6862Z' fill='white'/%3E%3Cpath d='M4.15005 14.1096C4.41621 10.5116 7.35563 7.67954 10.9548 7.55337L214.763 0.408796C218.481 0.278462 221.635 3.07413 221.954 6.78312L227.338 69.2839C227.694 73.4073 224.429 76.9682 220.295 76.9682L7.00781 76.9671C2.94541 76.9671 -0.245091 73.5243 0.0552106 69.4648L4.15005 14.1096Z' fill='%23BF1A69'/%3E%3Cpath d='M6.79837 17.7174C7.09743 13.9811 10.1544 11.0493 13.8918 10.9119L216.79 3.45176C218.322 3.39542 219.764 3.81533 220.969 4.58297C221.289 5.26794 221.496 6.01995 221.565 6.81665L226.949 69.3175C227.285 73.213 224.2 76.5776 220.295 76.5775L7.00782 76.5765C5.85038 76.5765 4.76786 76.2804 3.8283 75.7616C2.89061 74.4239 2.39276 72.7591 2.53485 70.9839L6.79837 17.7174ZM220.166 3.2849C219.12 2.84833 217.966 2.62669 216.761 2.67098L13.8631 10.1311C9.72846 10.2831 6.35014 13.5248 6.01955 17.655L1.75602 70.9216C1.65118 72.2315 1.86143 73.4875 2.32111 74.6183C1.03833 73.316 0.297593 71.4836 0.444802 69.4936L4.53964 14.1384C4.79114 10.7386 7.56908 8.06296 10.9685 7.94379L214.776 0.799212C216.944 0.723211 218.909 1.70089 220.166 3.2849ZM9.78976 78.8613C7.95847 78.8613 6.29752 78.1915 5.02618 77.0895C5.65542 77.2642 6.31977 77.3578 7.00781 77.3578L220.295 77.3588C224.659 77.3589 228.102 73.6015 227.728 69.2504L222.343 6.74959C222.306 6.32007 222.233 5.90213 222.127 5.49859C223.327 6.66244 224.131 8.24319 224.304 10.0338L230.142 70.7604C230.558 75.0929 227.137 78.8613 222.789 78.8613L9.78976 78.8613Z' preserveAspectRatio='none' stroke='white' stroke-width='0.781312'/%3E%3C/svg%3E");
+}
+
+.section-title-wrapper::before {
+    content: "";
+    position: absolute;
+    width: 33px;
+    height: 29px;
+    left: 0;
+    bottom: -19px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='33' height='29' viewBox='0 0 33 29' fill='none'%3E%3Cpath d='M32.7822 28.8402L6.17761 12.1758C2.80113 10.0609 0.618653 6.47851 0.287786 2.5081L0.110821 0.384521C0.712143 1.74824 3.27257 5.50354 6.08301 6.70801C8.54214 7.76193 18.9031 9.15785 20.4865 8.81584C19.0813 9.11935 19.2567 11.1473 19.7839 11.9776C23.2749 17.4753 27.3977 21.3495 32.7822 28.8402Z' fill='white'/%3E%3C/svg%3E");
+}
+
+.secondary-title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 110%;
+}
+
+.annotation-title {
+    text-transform: uppercase;
+}
+
+/* ========================================================texts */
+
+.hero-text {
+    max-width: 555px;
+    line-height: 120%;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.conditions-text {
+    line-height: 130%;
+}
+
+.faq-text {
+    font-size: 15px;
+}
+
+.info-text {
+    font-size: 15px;
+    line-height: 133.333%;
+}
+
+.annotation-text {
+    color: var(--fainter-text);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 130%;
+}
+
+/* ===========================================================header */
+.header {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.main-menu {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.burger-button,
+.language {
+    width: 30px;
+    height: 30px;
+    background-color: var(--bg-sm);
+    border-radius: var(--rounded-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.burger-icon {
+    position: relative;
+    width: 15px;
+    height: 1.5px;
+    border-radius: 2px;
+    transition: transform .45s ease;
+    pointer-events: none;
+}
+
+.burger-icon::before,
+.burger-icon::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+    border-radius: inherit;
+    left: 0;
+    right: 0;
+    transition: transform .3s ease;
+    
+}
+
+.burger-icon::before {
+    top: -5px;
+    transition: top .15s ease, transform .3s ease;
+    box-shadow: 0 5px 0 currentColor;
+}
+.burger-icon::after {
+    bottom: -5px;
+    transition: bottom .15s ease, transform .3s ease;
+}
+
+.burger--open .burger-icon::before {
+    top: 0;
+    transform: rotate(-45deg);
+    box-shadow: none;
+}
+.burger--open .burger-icon::after {
+    bottom: 0;
+    transform:  rotate(45deg);
+}
+
+.notifications {
+    display: inline-block;
+    position: relative;
+    padding: 7px 6px;
+    height: 30px;
+    margin-left: auto;
+}
+
+.notifications > svg > path {
+    fill: currentColor;
+}
+
+.counter {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 0;
+    right: 0;
+    background-color: var(--accent);
+    border-radius: 50%;
+}
+
+.language {
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.main-menu > ul {
+    width: 100%;
+    height: calc(100vh - 60px);
+    padding: 0 15px 15px;
+    border-radius: 0 0 var(--rounded) var(--rounded);
+    position: absolute;
+    z-index: 90;
+    left: -100%;
+    top: 60px;
+    transition: left .5s ease;
+    background-color: var(--base);
+}
+
+.main-menu > ul a {
+    display: block;
+    padding: 12px;
+    outline-color: var(--second-accent);
+    transition: transform .3s ease, color .3s ease;
+}
+.main-menu > ul a:hover {
+    color: var(--second-accent);
+}
+
+.main-menu > ul a:active {
+    color: var(--darker-accent);
+}
+
+/* ================================================================== hero */
+
+.hero {
+    position: relative;
+    padding-top: 365px;
+    margin-bottom: 44px;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -190px;
+    left: -190px;
+    z-index: -2;
+    width: 485px;
+    height: 485px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: radial-gradient(#f3519f 0%, transparent 71%, #bf1968 100%);
+}
+
+.decor {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 560px;
+    background-position: 50% 75%;
+    background-repeat: no-repeat;
+    background-image: url('/img/index/hero-sm.png');
+}
+
+/* ================================================================== conditions */
+.conditions {
+    position: relative;
+    margin-bottom: 48px;
+}
+
+.conditions::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    left: -80px;
+    z-index: -2;
+    width: 340px;
+    height: 340px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: radial-gradient(#f3519f 0%, transparent 71%, #bf1968 100%);    
+}
+.conditions .section-title-wrapper {
+    margin-bottom: 15px;
+}
+.conditions .section-title {
+    font-size: 26px;
+}
+
+.conditions-list {
+    margin-bottom: 32px;
+}
+.conditions-list li {
+    padding: 5.5px 20px 5.5px 40px;
+    position: relative;
+}
+
+.conditions-list li::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: currentColor;
+    border-radius: 50%;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ================================================================== faq */
+.faq {
+    position: relative;
+    margin-bottom: 44px;
+}
+
+.faq::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    left: 0;
+    right: 0;
+    top: -50px;
+    bottom: -50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: radial-gradient(#F3519F 0%, transparent 71%, #bf1968 100%);
+}
+
+.faq-list {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.faq-item {
+    border-radius: var(--rounded);
+    background-color: #B91C6B;
+}
+
+.accordion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    width: 100%;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--rounded);
+    outline-color: var(--base-text);
+    outline-offset: 3px;
+    background-color: var(--darker-base);
+    transition: 0.4s;
+}
+
+.accordion:hover,
+.accordion:active,
+.accordeon:focus-visible {
+    background-color: #960F4F;
+}
+
+.button-name {
+  pointer-events: none;
+  max-width: calc(100% - 50px);
+}
+
+.cross {
+  display: block;
+  align-self: flex-start;
+  width: 20px;
+  height: 20px;
+  transform: rotate(-45deg);
+  transition: 0.4s;
+  pointer-events: none;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='17' viewBox='0 0 16 17' fill='none'%3E%3Cpath d='M0.423004 2.24151L1.83722 0.827301L15.9794 14.9694L14.5651 16.3836L0.423004 2.24151Z' fill='white'/%3E%3Cpath d='M1.83722 16.3836L0.423004 14.9694L14.5651 0.827301L15.9794 2.24151L1.83722 16.3836Z' fill='white'/%3E%3C/svg%3E");
+}
+
+.cross-close {
+  transform: rotate(90deg);
+}
+
+.panel {
+    padding: 20px 15px 20px;
+    font-size: 15px;
+    line-height: 1.5;
+    border-radius: 0 0 16px;
+    overflow: hidden;
+    transition: max-height 0.5s, padding 0.5s;
+    height: 100%;
+}
+
+.panel-close {
+  padding: 0px 15px;
+  max-height: 0px !important;
+}
+
+/* ====================================================================  info */  
+  .info-list {
+    width: 100%;
+    max-width: 555px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  
+  .info-list li {
+    position: relative;
+    padding-left: 35px;
+  }
+  
+  .info-list li::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='21' viewBox='0 0 20 21' fill='none'%3E%3Cpath d='M10 0.0140381C4.48578 0.0140381 0 4.49982 0 10.014C0 15.5283 4.48578 20.014 10 20.014C15.5142 20.014 20 15.5283 20 10.014C20 4.49982 15.5142 0.0140381 10 0.0140381Z' fill='url(%23paint0_linear_2_851)'/%3E%3Cpath d='M10.7802 11.6452C10.7755 11.7024 10.7613 11.7539 10.7377 11.7996C10.7141 11.8453 10.6715 11.8854 10.61 11.9197C10.5533 11.9483 10.4729 11.9711 10.3689 11.9883C10.2696 12.0055 10.1467 12.014 10.0001 12.014C9.84881 12.014 9.72351 12.0055 9.62422 11.9883C9.52493 11.9711 9.44455 11.9483 9.38309 11.9197C9.32635 11.8854 9.28616 11.8453 9.26252 11.7996C9.23888 11.7539 9.22469 11.7024 9.21997 11.6452L8.4292 4.51725C8.4292 4.44292 8.44338 4.37715 8.47175 4.31997C8.50012 4.26279 8.54977 4.21704 8.62069 4.18273C8.69634 4.1427 8.79563 4.11411 8.91856 4.09695C9.04622 4.0798 9.81098 4.01404 10.0001 4.01404C10.1892 4.01404 11.1573 4.0655 11.2803 4.08838C11.4032 4.10553 11.5001 4.13412 11.571 4.17415C11.6467 4.20846 11.6987 4.25421 11.7271 4.31139C11.7602 4.36286 11.7767 4.42576 11.7767 4.5001L10.7802 11.6452ZM11.0001 14.7617C11.0001 14.9962 10.9836 15.1935 10.9505 15.3536C10.9221 15.5137 10.8677 15.6423 10.7873 15.7396C10.7117 15.8368 10.61 15.9054 10.4824 15.9454C10.3547 15.9912 10.194 16.014 10.0001 16.014C9.80625 16.014 9.64313 15.9912 9.51075 15.9454C9.38309 15.9054 9.28143 15.8368 9.20578 15.7396C9.13013 15.6423 9.07576 15.5137 9.04266 15.3536C9.01429 15.1935 9.00011 14.9962 9.00011 14.7617C9.00011 14.5215 9.01429 14.3214 9.04266 14.1613C9.07576 13.9955 9.13013 13.8639 9.20578 13.7667C9.28143 13.6638 9.38309 13.5923 9.51075 13.5523C9.64313 13.5065 9.80625 13.4837 10.0001 13.4837C10.194 13.4837 10.3547 13.5065 10.4824 13.5523C10.61 13.5923 10.7117 13.6638 10.7873 13.7667C10.8677 13.8639 10.9221 13.9955 10.9505 14.1613C10.9836 14.3214 11.0001 14.5215 11.0001 14.7617Z' fill='%23AD0F5B'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_2_851' x1='2.64706' y1='0.0140396' x2='21.9164' y2='4.13904' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FECC00'/%3E%3Cstop offset='1' stop-color='%23FEA800'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+  }
+ 
+  @media (min-width: 768px) {
+    .hero {
+        padding-top: 150px;
+    }
+
+    .main-title,
+    .hero-text {
+        width: 70%;
+    }
+    .decor {
+        right: 0;
+        left: 40%;
+        background-image: url('/img/index/hero-lg.png');
+        background-size: cover;
+    }
+  }
+
+  @media (min-width: 992px) {
+    /* global */
+    .page {
+        font-size: 20px;
+    }
+
+    .main {
+        padding-bottom: 107px;
+    }
+
+    .button {
+        width: 300px;
+        padding: 20px;
+    }
+    /* titles */
+    .site-title {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        border: 0;
+        padding: 0;
+            
+        white-space: nowrap;
+        clip-path: inset(100%);
+        clip: rect(0 0 0 0);
+        overflow: hidden;
+    }
+    
+    .main-title {
+        font-size: 55px;
+        line-height: 105%;
+    }
+    .section-title {
+        font-size: 35px;
+    }
+
+    .section-title-wrapper {
+        max-width: 555px;
+        margin-bottom: 30px;
+        padding-top: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .section-title-wrapper::before {
+        width: 46px;
+        height: 40px;
+        bottom: -27px;
+    }
+
+    .secondary-title {
+        font-size: 26px;
+    }
+    /* texts */
+    .hero-text {
+        line-height: 145%;
+    }
+    .annotation-text {
+        text-align: left;
+    }
+
+    .info-text,
+    .faq-text   {
+        font-size: 20px;
+    }
+
+    /* header */
+    .header {
+        background-color: var(--base-text);
+        color: var(--second-accent);
+    }
+
+    .main-menu {
+        padding-bottom: 10px;
+        gap: 15px;
+    }
+
+    .burger-button {
+        width: 45px;
+        height: 45px;
+        background-color: transparent;
+        order: 10;
+    }
+
+    .burger-icon {
+        width: 25px;
+        height: 2px;
+    }
+
+    .burger-icon::before {
+        top: -6px;
+        box-shadow: 0 6px 0 currentColor;
+    }
+
+    .burger-icon::after {
+        bottom: -6px;
+    }
+
+    .language {
+        font-size: 14px;
+        font-weight: 700;
+        background-color: var(--base-text);
+        border-radius: 50%;
+        box-shadow: 0px 5px 20px 0px rgba(43, 93, 168, 0.25);
+    }
+
+    .notifications {
+        margin-left: 0;
+    }
+
+    .main-menu > ul {
+        width: auto;
+        height: auto;
+        margin-left: auto;
+        padding: 0;
+        position: static;
+        transition: none;
+        font-size: 15px;
+        color: #000;
+        background-color: transparent;
+        display: flex;
+    }
+
+    .main-menu > ul a:hover {
+        transform: scale(1.2);
+    }
+
+    /* hero */
+    .hero::before {
+        display: none;
+    }
+    .decor {
+        top: 50px
+    }
+
+    /* conditions */
+    .conditions {
+        margin-bottom: 80px;
+    }
+    .conditions .section-title-wrapper {
+        margin-bottom: 25px;
+    }
+    .conditions .section-title {
+        font-size: 35px;
+    }
+
+    /* faq */
+    .faq {
+        margin-bottom: 80px;
+    }
+
+    .faq::before {
+        top: -200px;
+        left: -350px;
+        bottom: -150px;
+        width: 1125px;
+        height: 1125px;
+    }
+
+    .accordion {
+        padding: 25px;
+    }
+
+    .panel {
+        padding: 20px 25px 20px;
+    }
+    
+    .panel-close {
+      padding: 0px 25px;
+      max-height: 0px !important;
+    }
+
+    /* info */
+
+    .info::before {
+        content: "";
+        position: absolute;
+        top: 1000px;
+        right: -100px;
+        width: 700px;
+        height: 700px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url('/img/index/ball08-spiral.png');
+    }
+
+    .info-list li {
+        padding-left: 40px;
+    }
+    .info-list li::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='21' viewBox='0 0 20 21' fill='none'%3E%3Cpath d='M10 0.58075C4.48578 0.58075 0 5.06653 0 10.5807C0 16.095 4.48578 20.5807 10 20.5807C15.5142 20.5807 20 16.095 20 10.5807C20 5.06653 15.5142 0.58075 10 0.58075Z' fill='%23C61515'/%3E%3Cpath d='M10.7802 12.2119C10.7755 12.2691 10.7613 12.3206 10.7377 12.3663C10.7141 12.4121 10.6715 12.4521 10.61 12.4864C10.5533 12.515 10.4729 12.5379 10.3689 12.555C10.2696 12.5722 10.1467 12.5807 10.0001 12.5807C9.84881 12.5807 9.72351 12.5722 9.62422 12.555C9.52493 12.5379 9.44455 12.515 9.38309 12.4864C9.32635 12.4521 9.28616 12.4121 9.26252 12.3663C9.23888 12.3206 9.22469 12.2691 9.21997 12.2119L8.4292 5.08397C8.4292 5.00963 8.44338 4.94387 8.47175 4.88668C8.50012 4.8295 8.54977 4.78375 8.62069 4.74944C8.69634 4.70941 8.79563 4.68082 8.91856 4.66367C9.04622 4.64651 9.81098 4.58075 10.0001 4.58075C10.1892 4.58075 11.1573 4.63221 11.2803 4.65509C11.4032 4.67224 11.5001 4.70084 11.571 4.74086C11.6467 4.77517 11.6987 4.82092 11.7271 4.8781C11.7602 4.92957 11.7767 4.99247 11.7767 5.06681L10.7802 12.2119ZM11.0001 15.3284C11.0001 15.5629 10.9836 15.7602 10.9505 15.9203C10.9221 16.0804 10.8677 16.2091 10.7873 16.3063C10.7117 16.4035 10.61 16.4721 10.4824 16.5121C10.3547 16.5579 10.194 16.5807 10.0001 16.5807C9.80625 16.5807 9.64313 16.5579 9.51075 16.5121C9.38309 16.4721 9.28143 16.4035 9.20578 16.3063C9.13013 16.2091 9.07576 16.0804 9.04266 15.9203C9.01429 15.7602 9.00011 15.5629 9.00011 15.3284C9.00011 15.0883 9.01429 14.8881 9.04266 14.728C9.07576 14.5622 9.13013 14.4306 9.20578 14.3334C9.28143 14.2305 9.38309 14.159 9.51075 14.119C9.64313 14.0732 9.80625 14.0504 10.0001 14.0504C10.194 14.0504 10.3547 14.0732 10.4824 14.119C10.61 14.159 10.7117 14.2305 10.7873 14.3334C10.8677 14.4306 10.9221 14.5622 10.9505 14.728C10.9836 14.8881 11.0001 15.0883 11.0001 15.3284Z' fill='white'/%3E%3C/svg%3E");
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .conditions::before {
+        display: none;
+    }
+
+  }
+
+  @media (min-width: 1280px) {
+    .decor {
+        height: 850px;
+        top: 0;
+        left: 18%;
+        background-size: contain;
+    }
+    .info::before {
+        bottom: 80px;
+        right: 80px;
+        width: 900px;
+        height: 900px;
+    }    
+  }
