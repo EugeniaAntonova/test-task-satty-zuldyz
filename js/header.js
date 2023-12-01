@@ -9,6 +9,7 @@ const onWindowScroll = () => {
         header.style.top = '-200px';
     } else {
         header.style.top = '0';
+        // property is said to be deprecated, but not on mdn, so i dared to use it
         if (window.pageYOffset > 100) {
             header.style.backgroundColor = 'rgba(191,25,104,0.8)';
         } else {
