@@ -18,8 +18,17 @@ const onWindowScroll = () => {
     lastScrollY = window.scrollY;
 }
 
+const onResize = () => {    
+    if (screen.width <= 992) {
+        window.addEventListener('scroll', onWindowScroll);
+    } else {
+        window.removeEventListener('scroll', onWindowScroll);
+        header.style.backgroundColor = '';
+    }
+}
+
 if (screen.width <= 992) {
     window.addEventListener('scroll', onWindowScroll);
-} else {
-    window.removeEventListener('scroll', onWindowScroll);
 }
+
+window.addEventListener('resize', onResize);
